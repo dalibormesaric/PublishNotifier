@@ -2,7 +2,7 @@
 {
     public class ConfigurationModel
     {
-        public string slackBotIntegrationApiToken { get; set; }
-        public string hipChatBotIntegrationUrl { get; set; }
+        public string slackWebhookUrl { get; set; }
+        public string hipChatIntegrationUrl { get; set; }
     }
 }

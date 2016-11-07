@@ -72,8 +72,8 @@ namespace PublishNotifier
         {
             return new ConfigurationModel()
             {
-                slackBotIntegrationApiToken = string.Empty,
-                hipChatBotIntegrationUrl = string.Empty
+                slackWebhookUrl = string.Empty,
+                hipChatIntegrationUrl = string.Empty
             };
         }
 

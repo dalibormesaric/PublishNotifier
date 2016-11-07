@@ -15,20 +15,21 @@ See the [change log](CHANGELOG.md) for changes and road map.
 ## Features
 
 - Visual Studio Publish posts notification in Slack and/or HipChat
+- The configuration is saved in PublishNotifier.json so you commit it to source control
 
 ![Publish](./docs/publish.png)
 
 ![Publish](./docs/config.png)
 
 ### Slack
-To enable Slack notifications you have to add a [custom integration](https://slack.com/apps/build/custom-integration) and choose *Bots*. Create a new bot with a name *PublishNotifier*, and copy the API token to the Publish Notifer dialog that shows up after you Publish an application. You also have to add the bot to the channels where you would like to see notifications.
+To enable Slack notifications you have to add a [custom integration](https://slack.com/apps/build/custom-integration) and choose *Incoming WebHooks*. Then choose a Channel where you would like to see notifications and click *Add Incoming WebHooks integration*. Copy the Webhook URL to the Publish Notifer dialog that shows up after you Publish an application.
 
 ![Publish](./docs/slack_api_token.png)
 
 ![Publish](./docs/slack_notification.png)
 
 ### HipChat
-To enable HipChat notifications you have to add an [integration](https://hipchat.com/addons/) and room where you would like to see notifications. Create a new integration with a name *PublishNotifier*, and copy the URL for posting messages to the Publish Notifer dialog that shows up after you Publish an application.
+To enable HipChat notifications you have to add an [integration](https://hipchat.com/addons/) and select a room where you would like to see notifications. Create a new integration with a name *PublishNotifier*, and copy the URL for posting messages to the Publish Notifer dialog that shows up after you Publish an application.
 
 ![Publish](./docs/hipchat_api_token.png)
 

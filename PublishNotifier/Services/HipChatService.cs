@@ -10,11 +10,11 @@ namespace PublishNotifier
         private const string regexAuthToken = @"^.+?auth_token=(.*)$";
         private const string regexRoom = @"^.+?room\/(.*)\/.+?$";
 
-        public HipChatService(string hipChatBotIntegrationUrl, string projectName)
+        public HipChatService(string hipChatIntegrationUrl, string projectName)
         {
-            var hipChat = new HipChatClient(new ApiConnection(new Credentials(GetAuthToken(hipChatBotIntegrationUrl))));
+            var hipChat = new HipChatClient(new ApiConnection(new Credentials(GetAuthToken(hipChatIntegrationUrl))));
             hipChat.Rooms.SendNotificationAsync(
-                GetRoomName(hipChatBotIntegrationUrl),
+                GetRoomName(hipChatIntegrationUrl),
                 $"{projectName} was just published!");
         }
 

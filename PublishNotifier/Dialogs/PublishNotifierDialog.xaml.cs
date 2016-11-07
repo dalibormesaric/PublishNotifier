@@ -15,15 +15,15 @@ namespace PublishNotifier
         {
             InitializeComponent();
             configurationModel = _configurationModel;
-            txtSlack.Text = configurationModel?.slackBotIntegrationApiToken;
-            txtHipChat.Text = configurationModel?.hipChatBotIntegrationUrl;
+            txtSlack.Text = configurationModel?.slackWebhookUrl;
+            txtHipChat.Text = configurationModel?.hipChatIntegrationUrl;
         }
 
         private void btnNotify_Click(object sender, RoutedEventArgs e)
         {
             isNotify = true;
-            configurationModel.slackBotIntegrationApiToken = txtSlack.Text;
-            configurationModel.hipChatBotIntegrationUrl = txtHipChat.Text;
+            configurationModel.slackWebhookUrl = txtSlack.Text;
+            configurationModel.hipChatIntegrationUrl = txtHipChat.Text;
             Close();
         }
 

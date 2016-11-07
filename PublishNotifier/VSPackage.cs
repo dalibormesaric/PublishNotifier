@@ -57,16 +57,16 @@ namespace PublishNotifier
                 {
                     configurationService.SaveConfiguration(publishedProjectService.GetConfigurationFileFullPath(), publishNotifierDialog.configurationModel);
 
-                    if (!string.IsNullOrEmpty(publishNotifierDialog.configurationModel.slackBotIntegrationApiToken))
+                    if (!string.IsNullOrEmpty(publishNotifierDialog.configurationModel.slackWebhookUrl))
                     {
-                        using (var slackService = new SlackService(publishNotifierDialog.configurationModel.slackBotIntegrationApiToken, publishedProjectService.GetProjectName()))
+                        using (var slackService = new SlackService(publishNotifierDialog.configurationModel.slackWebhookUrl, publishedProjectService.GetProjectName()))
                         {
                         }
                     }
 
-                    if (!string.IsNullOrEmpty(publishNotifierDialog.configurationModel.hipChatBotIntegrationUrl))
+                    if (!string.IsNullOrEmpty(publishNotifierDialog.configurationModel.hipChatIntegrationUrl))
                     {
-                        using (var hipChatService = new HipChatService(publishNotifierDialog.configurationModel.hipChatBotIntegrationUrl, publishedProjectService.GetProjectName()))
+                        using (var hipChatService = new HipChatService(publishNotifierDialog.configurationModel.hipChatIntegrationUrl, publishedProjectService.GetProjectName()))
                         {
                         }
                     }

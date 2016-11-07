@@ -11,7 +11,7 @@ namespace PublishNotifier
         public const string Name = "Publish Notifier";
         public const string Description = @"Notify your team in Slack or HipChat when you do a right-click Publish from Visual Studio.";
         public const string Language = "en-US";
-        public const string Version = "1.0";
+        public const string Version = "1.1";
         public const string Author = "Dalibor Mesarić";
         public const string Tags = "slack, hipchat, publish, notification";
     }

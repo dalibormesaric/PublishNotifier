@@ -1,32 +1,19 @@
-﻿using SlackAPI;
+﻿using Slack.Webhooks;
 using System;
-using System.Linq;
 
 namespace PublishNotifier
 {
     public class SlackService : IDisposable
     {
-        private SlackClient _sc;
-        private string visualStudioPublishIconUrl = "";
-
-        public SlackService(string slackBotIntegrationApiToken, string projectName)
+        public SlackService(string slackWebhookUrl, string projectName)
         {
-            _sc = new SlackClient(slackBotIntegrationApiToken);
-            _sc.Connect((connected) => {
-                //This is called once the client has emitted the RTM start command
-                HandleConnected(connected, projectName);
-            }, () => {
-                //This is called once the RTM client has connected to the end point
-            });
-        }
-
-        private void HandleConnected(LoginResponse loginResponse, string projectName)
-        {
-            var channels = _sc.Channels.Where(s => s.is_member).ToList();
-            for (int i = 0; i < channels.Count(); i++)
+            var slackClient = new SlackClient(slackWebhookUrl);
+            var slackMessage = new SlackMessage
             {
-                _sc.PostMessage(null, channels[i].id, $"{projectName} was just published!", loginResponse.self.name);//, null, false, null, false, visualStudioPublishIconUrl);
-            }
+                Text = $"{projectName} was just published!",
+                Username = "PublishNotifier"
+            };
+            slackClient.Post(slackMessage);
         }
 
         public void Dispose()

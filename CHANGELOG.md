@@ -11,6 +11,10 @@ download in the
 These are the changes to each version that has been released
 on the official Visual Studio extension gallery.
 
+## 1.1
+
+- [x] Change Slack library from [SlackAPI](https://github.com/Inumedia/SlackAPI) to [Slack.Webhooks](https://github.com/nerdfury/Slack.Webhooks)
+
 ## 1.0
 
 - [x] Initial release
