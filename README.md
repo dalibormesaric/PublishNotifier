@@ -8,14 +8,14 @@ or get the [CI build](http://vsixgallery.com/extension/763d21f2-0b6e-49d1-ac3c-b
 
 ---------------------------------------
 
-Notify your team in Slack or HipChat when you do a right-click Publish from Visual Studio.
+Notify your team in Slack or HipChat when you [Deploy a Web Project Using One-Click Publish from Visual Studio](https://msdn.microsoft.com/en-us/library/dd465337(v=vs.110).aspx).
 
 See the [change log](CHANGELOG.md) for changes and road map.
 
 ## Features
 
-- Visual Studio Publish posts notification in Slack and/or HipChat
-- The configuration is saved in PublishNotifier.json so you commit it to source control
+- One-Click Publish sends a notification to your Slack channel and/or HipChat room
+- The configuration is saved in PublishNotifier.json so you can commit it to source control
 
 ![Publish](./docs/publish.png)
 

@@ -3,7 +3,7 @@
   <Metadata>
     <Identity Id="763d21f2-0b6e-49d1-ac3c-bd3a74e78566" Version="1.1" Language="en-US" Publisher="Dalibor Mesarić" />
     <DisplayName>Publish Notifier</DisplayName>
-    <Description xml:space="preserve">Notify your team in Slack or HipChat when you do a right-click Publish from Visual Studio.</Description>
+    <Description xml:space="preserve">Notify your team in Slack or HipChat when you Deploy a Web Project Using One-Click Publish from Visual Studio.</Description>
     <License>Resources\LICENSE</License>
     <Icon>Resources\Icon.png</Icon>
     <PreviewImage>Resources\Preview.png</PreviewImage>
