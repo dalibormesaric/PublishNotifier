@@ -1,6 +1,7 @@
 # Road map
 
-- [ ] We'll see...
+- [ ] Add git branch info to notification
+- [ ] Add publish profile info to notification
 
 Features that have a checkmark are complete and available for
 download in the
@@ -18,4 +19,5 @@ on the official Visual Studio extension gallery.
 ## 1.0
 
 - [x] Initial release
-- [x] Visual Studio Publish posts notification in Slack and/or HipChat
+- [x] One-Click Publish sends a notification to your Slack channel and/or HipChat room
+- [x] The configuration is saved in PublishNotifier.json so you can commit it to source control
