@@ -2,6 +2,7 @@
 
 - [ ] Add git branch info to notification
 - [ ] Add publish profile info to notification
+- [ ] Add custom message
 
 Features that have a checkmark are complete and available for
 download in the
