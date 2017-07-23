@@ -1,8 +1,9 @@
 # Road map
 
-- [ ] Add git branch info to notification
+- [ ] Add git branch info to notification (https://github.com/thiagotts/show-my-git-branch/blob/master/ShowMyGitBranch/BranchGetter.cs)
 - [ ] Add publish profile info to notification
-- [ ] Add custom message
+- [ ] Add custom message to notification
+- [ ] Add user info from signed in user to notification (http://stackoverflow.com/questions/31353014/accessing-current-microsoft-account-from-visual-studio-extension or Environment.UserName)
 
 Features that have a checkmark are complete and available for
 download in the
