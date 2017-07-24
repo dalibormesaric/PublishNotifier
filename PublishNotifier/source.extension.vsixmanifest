@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="763d21f2-0b6e-49d1-ac3c-bd3a74e78566" Version="1.1" Language="en-US" Publisher="Dalibor Mesarić" />
+    <Identity Id="763d21f2-0b6e-49d1-ac3c-bd3a74e78566" Version="1.2" Language="en-US" Publisher="Dalibor Mesarić" />
     <DisplayName>Publish Notifier</DisplayName>
     <Description xml:space="preserve">Notify your team in Slack or HipChat when you Deploy a Web Project Using One-Click Publish from Visual Studio.</Description>
     <License>Resources\LICENSE</License>
