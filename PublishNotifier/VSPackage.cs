@@ -7,8 +7,8 @@ using EnvDTE;
 
 namespace PublishNotifier
 {
-    [PackageRegistration(UseManagedResourcesOnly = true)]
-    [InstalledProductRegistration("#110", "#112", Vsix.Version, IconResourceID = 400)] // Info on this package for Help/About
+    [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
+    [InstalledProductRegistration(Vsix.Name, Vsix.Description, Vsix.Version)] // Info on this package for Help/About
     [ProvideAutoLoad(UIContextGuids80.SolutionBuilding)]
     [Guid(VSPackage.PackageGuidString)]
     public sealed class VSPackage : Package
