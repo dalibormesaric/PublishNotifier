@@ -4,11 +4,11 @@ install:
 - ps: (new-object Net.WebClient).DownloadString("https://raw.github.com/madskristensen/ExtensionScripts/master/AppVeyor/vsix.ps1") | iex
 
 before_build:
-  - ps: Vsix-IncrementVsixVersion | Vsix-UpdateBuildVersion
+  - ps: Vsix-IncrementVsixVersion PublishNotifier\source.extension.vsixmanifest | Vsix-UpdateBuildVersion
   - ps: Vsix-TokenReplacement PublishNotifier\source.extension.cs 'Version = "([0-9\\.]+)"' 'Version = "{version}"'
 
 build_script:
-  - nuget restore -Verbosity quiet
+  - nuget restore PublishNotifier.sln -Verbosity quiet
   - msbuild .\PublishNotifier\PublishNotifier.csproj /p:configuration=Release /p:DeployExtension=false /p:ZipPackageCompressionLevel=normal /v:m
 
 after_test:
