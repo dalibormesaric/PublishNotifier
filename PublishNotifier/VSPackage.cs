@@ -64,9 +64,9 @@ namespace PublishNotifier
                         }
                     }
 
-                    if (!string.IsNullOrEmpty(publishNotifierDialog.configurationModel.hipChatIntegrationUrl))
+                    if (!string.IsNullOrEmpty(publishNotifierDialog.configurationModel.msTeamsWebhookUrl))
                     {
-                        using (var hipChatService = new HipChatService(publishNotifierDialog.configurationModel.hipChatIntegrationUrl, publishedProjectService.GetProjectName()))
+                        using (var msTeamsService = new MSTeamsService(publishNotifierDialog.configurationModel.msTeamsWebhookUrl, publishedProjectService.GetProjectName()))
                         {
                         }
                     }

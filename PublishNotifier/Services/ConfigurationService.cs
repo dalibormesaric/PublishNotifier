@@ -73,7 +73,7 @@ namespace PublishNotifier
             return new ConfigurationModel()
             {
                 slackWebhookUrl = string.Empty,
-                hipChatIntegrationUrl = string.Empty
+                msTeamsWebhookUrl = string.Empty
             };
         }
 

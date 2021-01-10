@@ -14,6 +14,11 @@ download in the
 These are the changes to each version that has been released
 on the official Visual Studio extension gallery.
 
+## 2.0
+
+- [x] Remove HipChat
+- [x] Add MS Teams
+
 ## 1.3
 
 - [x] Support Visual Studio 2019

@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="763d21f2-0b6e-49d1-ac3c-bd3a74e78566" Version="1.3" Language="en-US" Publisher="Dalibor Mesarić" />
+    <Identity Id="763d21f2-0b6e-49d1-ac3c-bd3a74e78566" Version="2.0" Language="en-US" Publisher="Dalibor Mesarić" />
     <DisplayName>Publish Notifier</DisplayName>
     <Description xml:space="preserve">Notify your team in Slack or HipChat when you Deploy a Web Project Using One-Click Publish from Visual Studio.</Description>
     <License>Resources\LICENSE</License>
     <Icon>Resources\Icon.png</Icon>
     <PreviewImage>Resources\Preview.png</PreviewImage>
-    <Tags>slack, hipchat, publish, notification</Tags>
+    <Tags>slack, microsoft teams, teams, publish, notification</Tags>
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0,17.0)" />

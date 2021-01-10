@@ -16,14 +16,14 @@ namespace PublishNotifier
             InitializeComponent();
             configurationModel = _configurationModel;
             txtSlack.Text = configurationModel?.slackWebhookUrl;
-            txtHipChat.Text = configurationModel?.hipChatIntegrationUrl;
+            txtMSTeams.Text = configurationModel?.msTeamsWebhookUrl;
         }
 
         private void btnNotify_Click(object sender, RoutedEventArgs e)
         {
             isNotify = true;
             configurationModel.slackWebhookUrl = txtSlack.Text;
-            configurationModel.hipChatIntegrationUrl = txtHipChat.Text;
+            configurationModel.msTeamsWebhookUrl = txtMSTeams.Text;
             Close();
         }
 
