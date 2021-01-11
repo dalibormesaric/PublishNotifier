@@ -9,7 +9,7 @@ namespace PublishNotifier
 {
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [InstalledProductRegistration(Vsix.Name, Vsix.Description, Vsix.Version)] // Info on this package for Help/About
-    [ProvideAutoLoad(UIContextGuids80.SolutionBuilding)]
+    [ProvideAutoLoad(UIContextGuids80.SolutionBuilding, PackageAutoLoadFlags.BackgroundLoad)]
     [Guid(VSPackage.PackageGuidString)]
     public sealed class VSPackage : Package
     {
