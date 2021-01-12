@@ -9,7 +9,7 @@ or get the [CI build](http://vsixgallery.com/extension/763d21f2-0b6e-49d1-ac3c-b
 
 ---------------------------------------
 
-Notify your team in Slack or Microsoft Teams when you [Deploy a Web Project Using One-Click Publish from Visual Studio](https://msdn.microsoft.com/en-us/library/dd465337(v=vs.110).aspx) or you just publish to a folder.
+Notify your team in Slack or Microsoft Teams when you [Deploy a Web Project Using One-Click Publish from Visual Studio](https://docs.microsoft.com/en-us/previous-versions/aspnet/dd465337(v=vs.110)) or you just publish to a folder.
 
 See the [change log](CHANGELOG.md) for changes and road map.
 
