@@ -33,11 +33,14 @@ namespace PublishNotifier
             return GetSelectedItem().Name;
         }
 
+        public string GetProjectFullPath()
+        {
+            return GetSelectedItem().Project.FullName;
+        }
+
         public string GetConfigurationFileFullPath()
         {
-            var projectName = GetProjectName();
-            var solutionDirectory = Path.GetDirectoryName(_application.Solution.FullName);
-            var projectDirectory = Path.Combine(solutionDirectory, projectName);
+            var projectDirectory = Path.GetDirectoryName(GetProjectFullPath());
             return Path.Combine(projectDirectory, _publishNotifierFileName);
         }
 

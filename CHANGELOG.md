@@ -14,6 +14,10 @@ download in the
 These are the changes to each version that has been released
 on the official Visual Studio extension gallery.
 
+## 2.1
+
+ - [x] _Bug fix_ : Get correct publishing project path to save PublishNotifier.json next to it
+
 ## 2.0
 
 - [x] Remove HipChat
