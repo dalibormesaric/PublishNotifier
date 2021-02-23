@@ -1,5 +1,6 @@
 ﻿using Slack.Webhooks;
 using System;
+using System.Windows;
 
 namespace PublishNotifier
 {
@@ -7,13 +8,20 @@ namespace PublishNotifier
     {
         public SlackService(string slackWebhookUrl, string projectName)
         {
-            var slackClient = new SlackClient(slackWebhookUrl);
-            var slackMessage = new SlackMessage
+            try
             {
-                Text = $"{projectName} was just published!",
-                Username = "PublishNotifier"
-            };
-            slackClient.Post(slackMessage);
+                var slackClient = new SlackClient(slackWebhookUrl);
+                var slackMessage = new SlackMessage
+                {
+                    Text = $"{projectName} was just published!",
+                    Username = "PublishNotifier"
+                };
+                slackClient.Post(slackMessage);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Slack Webhook URL");
+            }
         }
 
         public void Dispose()

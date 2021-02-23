@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using TeamsHook.NET;
 
 namespace PublishNotifier
@@ -7,12 +8,19 @@ namespace PublishNotifier
     {
         public MSTeamsService(string msTeamsWebhookUrl, string projectName)
         {
-            var msTeamsHookClient = new TeamsHookClient();
-            var messageCard = new MessageCard
+            try
             {
-                Text = $"{projectName} was just published!"
-            };
-            msTeamsHookClient.PostAsync(msTeamsWebhookUrl, messageCard).ConfigureAwait(false);
+                var msTeamsHookClient = new TeamsHookClient();
+                var messageCard = new MessageCard
+                {
+                    Text = $"{projectName} was just published!"
+                };
+                msTeamsHookClient.PostAsync(msTeamsWebhookUrl, messageCard).ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "MS Teams Webhook URL");
+            }
         }
 
         public void Dispose()
