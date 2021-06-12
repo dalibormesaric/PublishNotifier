@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using EnvDTE80;
 using EnvDTE;
+using System.Threading.Tasks;
 
 namespace PublishNotifier
 {
@@ -31,7 +32,7 @@ namespace PublishNotifier
             publishEvents.OnPublishDone += PublishEvents_OnPublishDone;
         }
 
-        private void PublishEvents_OnPublishDone(bool Success)
+        private async void PublishEvents_OnPublishDone(bool Success)
         {
             using (var publishedProjectService = new PublishedProjectService(application))
             {
@@ -48,7 +49,7 @@ namespace PublishNotifier
             }
         }
 
-        private void Dialog_Closing(PublishedProjectService publishedProjectService, ConfigurationService configurationService, object sender, System.ComponentModel.CancelEventArgs e)
+        private async System.Threading.Tasks.Task Dialog_Closing(PublishedProjectService publishedProjectService, ConfigurationService configurationService, object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (sender != null && sender is PublishNotifierDialog)
             {
@@ -61,6 +62,7 @@ namespace PublishNotifier
                     {
                         using (var slackService = new SlackService(publishNotifierDialog.configurationModel.slackWebhookUrl, publishedProjectService.GetProjectName()))
                         {
+                            bool success = await slackService.SendMessage();
                         }
                     }
 
