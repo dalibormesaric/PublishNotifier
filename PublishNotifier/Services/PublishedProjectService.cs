@@ -30,12 +30,12 @@ namespace PublishNotifier
 
         public string GetProjectName()
         {
-            return GetSelectedItem().Name;
+            return GetSelectedItem()?.Name;
         }
 
         public string GetProjectFullPath()
         {
-            return GetSelectedItem().Project.FullName;
+            return GetSelectedItem()?.Project?.FullName;
         }
 
         public string GetConfigurationFileFullPath()

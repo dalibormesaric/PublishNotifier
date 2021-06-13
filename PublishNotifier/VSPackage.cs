@@ -33,6 +33,8 @@ namespace PublishNotifier
 
         private void PublishEvents_OnPublishDone(bool Success)
         {
+            if (!Success) return;
+
             using (var publishedProjectService = new PublishedProjectService(application))
             {
                 var selectedItem = publishedProjectService.GetSelectedItem();
@@ -50,25 +52,21 @@ namespace PublishNotifier
 
         private void Dialog_Closing(PublishedProjectService publishedProjectService, ConfigurationService configurationService, object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (sender != null && sender is PublishNotifierDialog)
+            if (sender != null && sender is PublishNotifierDialog publishNotifierDialog && publishNotifierDialog.isNotify)
             {
-                var publishNotifierDialog = (sender as PublishNotifierDialog);
-                if (publishNotifierDialog.isNotify)
+                configurationService.SaveConfiguration(publishedProjectService.GetConfigurationFileFullPath(), publishNotifierDialog.configurationModel);
+
+                if (!string.IsNullOrEmpty(publishNotifierDialog.configurationModel.slackWebhookUrl))
                 {
-                    configurationService.SaveConfiguration(publishedProjectService.GetConfigurationFileFullPath(), publishNotifierDialog.configurationModel);
-
-                    if (!string.IsNullOrEmpty(publishNotifierDialog.configurationModel.slackWebhookUrl))
+                    using (var slackService = new SlackService(publishNotifierDialog.configurationModel.slackWebhookUrl, publishedProjectService.GetProjectName()))
                     {
-                        using (var slackService = new SlackService(publishNotifierDialog.configurationModel.slackWebhookUrl, publishedProjectService.GetProjectName()))
-                        {
-                        }
                     }
+                }
 
-                    if (!string.IsNullOrEmpty(publishNotifierDialog.configurationModel.msTeamsWebhookUrl))
+                if (!string.IsNullOrEmpty(publishNotifierDialog.configurationModel.msTeamsWebhookUrl))
+                {
+                    using (var msTeamsService = new MSTeamsService(publishNotifierDialog.configurationModel.msTeamsWebhookUrl, publishedProjectService.GetProjectName()))
                     {
-                        using (var msTeamsService = new MSTeamsService(publishNotifierDialog.configurationModel.msTeamsWebhookUrl, publishedProjectService.GetProjectName()))
-                        {
-                        }
                     }
                 }
             }

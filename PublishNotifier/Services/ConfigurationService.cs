@@ -23,9 +23,9 @@ namespace PublishNotifier
         {
             var publishNotifierConfigurationString = JsonConvert.SerializeObject(publishNotifierConfiguration);
 
-            using (StreamWriter writetext = new StreamWriter(path))
+            using (StreamWriter streamWriter = new StreamWriter(path))
             {
-                writetext.WriteLine(publishNotifierConfigurationString);
+                streamWriter.WriteLine(publishNotifierConfigurationString);
             }
         }
 
@@ -69,13 +69,11 @@ namespace PublishNotifier
         }
 
         private ConfigurationModel GetDefaultConfiguration()
-        {
-            return new ConfigurationModel()
+            => new ConfigurationModel()
             {
                 slackWebhookUrl = string.Empty,
                 msTeamsWebhookUrl = string.Empty
             };
-        }
 
         public void Dispose()
         {
