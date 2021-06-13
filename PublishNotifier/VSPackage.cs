@@ -41,14 +41,14 @@ namespace PublishNotifier
                     using (var configurationService = new ConfigurationService(selectedItem, publishedProjectService.GetConfigurationFileFullPath()))
                     {
                         PublishNotifierDialog dialog = new PublishNotifierDialog(configurationService.GetConfigurationModel());
-                        dialog.Closing += (sender, e) => Dialog_Closing(publishedProjectService, configurationService, sender, e);
+                        dialog.Closing += async (sender, e) => await Dialog_Closing(publishedProjectService, configurationService, sender, e);
                         dialog.ShowModal();
                     }
                 }
             }
         }
 
-        private void Dialog_Closing(PublishedProjectService publishedProjectService, ConfigurationService configurationService, object sender, System.ComponentModel.CancelEventArgs e)
+        private async System.Threading.Tasks.Task Dialog_Closing(PublishedProjectService publishedProjectService, ConfigurationService configurationService, object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (sender != null && sender is PublishNotifierDialog)
             {
@@ -61,6 +61,7 @@ namespace PublishNotifier
                     {
                         using (var slackService = new SlackService(publishNotifierDialog.configurationModel.slackWebhookUrl, publishedProjectService.GetProjectName()))
                         {
+                            bool success = await slackService.SendMessage();
                         }
                     }
 
