@@ -23,11 +23,23 @@ namespace PublishNotifier
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Slack Webhook URL");
+                MessageBox.Show(ex.Message, "Slack Client");
             }
         }
 
-        public async Task<bool> SendMessage() => await _client.PostAsync(_message);
+        public async Task<bool> SendMessage()
+        {
+            try
+            {
+                return _client != null && await _client.PostAsync(_message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Slack Message");
+            }
+
+            return false;
+        }
 
         public void Dispose()
         {

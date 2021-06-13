@@ -56,18 +56,19 @@ namespace PublishNotifier
             {
                 configurationService.SaveConfiguration(publishedProjectService.GetConfigurationFileFullPath(), publishNotifierDialog.configurationModel);
 
-                    if (!string.IsNullOrEmpty(publishNotifierDialog.configurationModel.slackWebhookUrl))
+                if (!string.IsNullOrEmpty(publishNotifierDialog.configurationModel.slackWebhookUrl))
+                {
+                    using (var slackService = new SlackService(publishNotifierDialog.configurationModel.slackWebhookUrl, publishedProjectService.GetProjectName()))
                     {
-                        using (var slackService = new SlackService(publishNotifierDialog.configurationModel.slackWebhookUrl, publishedProjectService.GetProjectName()))
-                        {
-                            bool success = await slackService.SendMessage();
-                        }
+                        bool success = await slackService.SendMessage();
                     }
+                }
 
                 if (!string.IsNullOrEmpty(publishNotifierDialog.configurationModel.msTeamsWebhookUrl))
                 {
                     using (var msTeamsService = new MSTeamsService(publishNotifierDialog.configurationModel.msTeamsWebhookUrl, publishedProjectService.GetProjectName()))
                     {
+                        await msTeamsService.SendMessage();
                     }
                 }
             }
