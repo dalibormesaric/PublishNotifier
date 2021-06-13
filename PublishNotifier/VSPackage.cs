@@ -4,7 +4,6 @@ using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using EnvDTE80;
 using EnvDTE;
-using System.Threading.Tasks;
 
 namespace PublishNotifier
 {
@@ -32,7 +31,7 @@ namespace PublishNotifier
             publishEvents.OnPublishDone += PublishEvents_OnPublishDone;
         }
 
-        private async void PublishEvents_OnPublishDone(bool Success)
+        private void PublishEvents_OnPublishDone(bool Success)
         {
             using (var publishedProjectService = new PublishedProjectService(application))
             {
@@ -42,7 +41,7 @@ namespace PublishNotifier
                     using (var configurationService = new ConfigurationService(selectedItem, publishedProjectService.GetConfigurationFileFullPath()))
                     {
                         PublishNotifierDialog dialog = new PublishNotifierDialog(configurationService.GetConfigurationModel());
-                        dialog.Closing += (sender, e) => Dialog_Closing(publishedProjectService, configurationService, sender, e);
+                        dialog.Closing += async (sender, e) => await Dialog_Closing(publishedProjectService, configurationService, sender, e);
                         dialog.ShowModal();
                     }
                 }

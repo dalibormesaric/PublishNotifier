@@ -7,14 +7,15 @@ namespace PublishNotifier
 {
     public class SlackService : IDisposable
     {
-        private SlackClient Client;
-        private SlackMessage Message;
+        private readonly SlackClient _client;
+        private readonly SlackMessage _message;
+
         public SlackService(string slackWebhookUrl, string projectName)
         {
             try
             {
-                Client = new SlackClient(slackWebhookUrl);
-                Message = new SlackMessage
+                _client = new SlackClient(slackWebhookUrl);
+                _message = new SlackMessage
                 {
                     Text = $"{projectName} was just published!",
                     Username = "PublishNotifier"
@@ -26,10 +27,7 @@ namespace PublishNotifier
             }
         }
 
-        public async Task<bool> SendMessage()
-        {
-            return await Client.PostAsync(Message);
-        }
+        public async Task<bool> SendMessage() => await _client.PostAsync(_message);
 
         public void Dispose()
         {
