@@ -172,18 +172,6 @@
     <PackageReference Include="Microsoft.VisualStudio.SDK">
       <Version>17.4.33103.184</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Shell.Immutable.10.0">
-      <Version>15.0.25414</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Shell.Immutable.11.0">
-      <Version>15.0.25414</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Shell.Immutable.12.0">
-      <Version>15.0.25414</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Shell.Immutable.14.0">
-      <Version>15.0.25404</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.VSSDK.BuildTools">
       <Version>17.4.2119</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
