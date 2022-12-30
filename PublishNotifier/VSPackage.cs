@@ -4,6 +4,8 @@ using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using EnvDTE80;
 using EnvDTE;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace PublishNotifier
 {
@@ -11,7 +13,7 @@ namespace PublishNotifier
     [InstalledProductRegistration(Vsix.Name, Vsix.Description, Vsix.Version)] // Info on this package for Help/About
     [ProvideAutoLoad(UIContextGuids80.SolutionBuilding, PackageAutoLoadFlags.BackgroundLoad)]
     [Guid(VSPackage.PackageGuidString)]
-    public sealed class VSPackage : Package
+    public sealed class VSPackage : AsyncPackage
     {
         public const string PackageGuidString = "5b816723-9ba2-4002-9fc6-d8f416462ef7";
 
@@ -20,9 +22,9 @@ namespace PublishNotifier
         private Events2 events;
         private PublishEvents publishEvents;
 
-        protected override void Initialize()
+        protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
-            base.Initialize();
+            await base.InitializeAsync(cancellationToken, progress);
 
             application = (DTE2)GetService(typeof(DTE));
             events = (Events2)application.Events;
